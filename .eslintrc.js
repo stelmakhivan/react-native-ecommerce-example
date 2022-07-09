@@ -17,6 +17,7 @@ module.exports = {
         'no-console': ['error', {allow: ['warn', 'error']}],
         '@typescript-eslint/no-explicit-any': ['error'],
         '@typescript-eslint/ban-ts-comment': ['error'],
+        'react/react-in-jsx-scope': 'off',
       },
     },
   ],
