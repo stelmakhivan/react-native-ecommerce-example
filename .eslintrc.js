@@ -2,6 +2,8 @@ module.exports = {
   root: true,
   extends: [
     '@react-native-community',
+    'plugin:import/errors',
+    'plugin:import/warnings',
     'plugin:jest/recommended',
     'plugin:jest-formatting/strict',
     'plugin:lodash/recommended',
@@ -44,6 +46,64 @@ module.exports = {
         'lodash/prefer-noop': 'off',
         'lodash/prefer-constant': 'off',
         'lodash/prefer-lodash-method': 'off',
+        'import/export': 'off',
+        'import/order': [
+          'error',
+          {
+            groups: [
+              'builtin',
+              'external',
+              'parent',
+              'sibling',
+              'internal',
+              'index',
+              'object',
+            ],
+            pathGroups: [
+              {
+                pattern: '{react,react-native}',
+                group: 'external',
+                position: 'before',
+              },
+              {
+                pattern: '{components/**,modules,components/**}',
+                group: 'parent',
+                position: 'before',
+              },
+              {
+                pattern: '{screens/**,modules,screens/**}',
+                group: 'parent',
+                position: 'before',
+              },
+              {
+                pattern: '{constants/**}',
+                group: 'parent',
+                position: 'before',
+              },
+              {
+                pattern: '{utils/**,services/**,navigators/**}',
+                group: 'parent',
+                position: 'before',
+              },
+              {
+                pattern: '{hooks/**,modules,hooks/**}',
+                group: 'parent',
+                position: 'before',
+              },
+              {
+                pattern: '{e2e-screens/**,modules/**}',
+                group: 'parent',
+                position: 'before',
+              },
+            ],
+            pathGroupsExcludedImportTypes: ['react', 'react-native', 'builtin'],
+            'newlines-between': 'always',
+            alphabetize: {
+              order: 'asc',
+              caseInsensitive: false,
+            },
+          },
+        ],
       },
     },
     {
@@ -58,4 +118,9 @@ module.exports = {
       },
     },
   ],
+  env: {
+    'jest/globals': true,
+    browser: true,
+    node: true,
+  },
 };
