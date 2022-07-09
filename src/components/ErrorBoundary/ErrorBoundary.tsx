@@ -1,9 +1,10 @@
 import {Component, ReactNode} from 'react';
 import {View} from 'react-native';
+
 import {Text} from 'react-native-paper';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {ERROR_TITLE} from './errorBoundary.settings';
 
+import {ERROR_TITLE} from './errorBoundary.settings';
 import styles from './errorBoundary.styles';
 import {ErrorBoundaryState} from './errorBoundary.types';
 
