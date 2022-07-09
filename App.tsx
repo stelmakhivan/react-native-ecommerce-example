@@ -1,17 +1,19 @@
-import {Text} from 'react-native';
-
+import {NavigationContainer} from '@react-navigation/native';
 import {Provider as PaperProvider} from 'react-native-paper';
-import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 import {ErrorBoundary} from 'components/ErrorBoundary/ErrorBoundary';
+
+import {navigationRef} from 'navigators/navigationRef';
+import {MainTabNavigator} from 'navigators/tabs/MainTabNavigator/MainTabNavigator';
 
 const App = () => (
   <SafeAreaProvider>
     <ErrorBoundary>
       <PaperProvider>
-        <SafeAreaView>
-          <Text>Ecommerce</Text>
-        </SafeAreaView>
+        <NavigationContainer ref={navigationRef}>
+          <MainTabNavigator />
+        </NavigationContainer>
       </PaperProvider>
     </ErrorBoundary>
   </SafeAreaProvider>
