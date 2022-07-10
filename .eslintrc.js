@@ -81,7 +81,7 @@ module.exports = {
                 position: 'before',
               },
               {
-                pattern: '{utils/**,services/**,navigators/**}',
+                pattern: '{api/**,utils/**,services/**,navigators/**}',
                 group: 'parent',
                 position: 'before',
               },

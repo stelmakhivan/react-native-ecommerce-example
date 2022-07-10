@@ -16,6 +16,7 @@ module.exports = {
         root: ['./src'],
         extensions: ['.js', '.ts', '.tsx', '.json'],
         alias: {
+          api: ['./src/api'],
           components: ['./src/components'],
           constants: ['./src/constants'],
           utils: ['./src/utils'],
