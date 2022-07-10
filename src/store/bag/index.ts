@@ -2,9 +2,7 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 import {AppStore} from 'store';
 
-import {BagState} from './bag.types';
-
-import {Product} from '__generated__/types';
+import {BagProduct, BagState} from './bag.types';
 
 export const initialState: BagState = {
   products: [],
@@ -14,7 +12,7 @@ const bagSlice = createSlice({
   name: 'bag',
   initialState,
   reducers: {
-    addToBag: (state, action: PayloadAction<Product>) => {
+    addToBag: (state, action: PayloadAction<BagProduct>) => {
       const existedProduct = state.products.find(
         product => product.id === action.payload.id,
       );
@@ -25,7 +23,7 @@ const bagSlice = createSlice({
 
       state.products.push(action.payload);
     },
-    removeFromBag: (state, action: PayloadAction<Product['id']>) => {
+    removeFromBag: (state, action: PayloadAction<BagProduct['id']>) => {
       state.products = state.products.filter(
         product => product.id !== action.payload,
       );

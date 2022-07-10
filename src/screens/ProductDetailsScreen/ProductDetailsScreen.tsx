@@ -31,7 +31,7 @@ const ProductDetailsScreen: FC<ProductDetailsScreenProps> = ({
 
   const handleAddToBag = () => {
     if (data) {
-      dispatch(addToBag(data));
+      dispatch(addToBag({...data, quantity: 1}));
     }
   };
 

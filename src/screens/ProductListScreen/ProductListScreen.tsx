@@ -1,5 +1,11 @@
 import {FC} from 'react';
-import {FlatList, ListRenderItem, Text, View} from 'react-native';
+import {
+  FlatList,
+  ListRenderItem,
+  RefreshControl,
+  Text,
+  View,
+} from 'react-native';
 
 import {Loader} from 'components/Loader/Loader';
 
@@ -23,7 +29,7 @@ const ProductListScreen: FC<ProductListScreenProps> = ({
     params: {url},
   },
 }) => {
-  const {isLoading, data} = useProducts(url);
+  const {isLoading, data, refetch, isRefetching} = useProducts(url);
 
   if (isLoading) {
     return <Loader />;
@@ -43,6 +49,9 @@ const ProductListScreen: FC<ProductListScreenProps> = ({
         }
         numColumns={2}
         stickyHeaderIndices={STICKY_HEADER_INDICES}
+        refreshControl={
+          <RefreshControl refreshing={isRefetching} onRefresh={refetch} />
+        }
       />
     </View>
   );

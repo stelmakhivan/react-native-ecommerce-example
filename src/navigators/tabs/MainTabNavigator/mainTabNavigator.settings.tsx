@@ -45,7 +45,7 @@ export const BAG_SCREEN_OPTIONS:
         style={styles.icon}
       />
     ),
-    tabBarBadge: badgeNumber,
+    tabBarBadge: badgeNumber === 0 ? false : badgeNumber,
   };
 };
 
