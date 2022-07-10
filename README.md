@@ -29,8 +29,7 @@ To start the project, please open terminal, `cd` to the project root and execute
 - [ ] Setup Fastlane
 - [ ] Share product item logic
 
-
- [Video Preview](/preview/preview.mov?raw=true)
+[Video Preview](https://user-images.githubusercontent.com/28428836/178157812-0a881840-3fcf-4269-8888-d93ac1596350.mov)
 
 ## File structure:
 This project has a next file structure:
