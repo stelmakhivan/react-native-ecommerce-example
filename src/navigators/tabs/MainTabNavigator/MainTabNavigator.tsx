@@ -3,9 +3,9 @@ import {createMaterialBottomTabNavigator} from '@react-navigation/material-botto
 import {AccountScreen} from 'screens/AccountScreen/AccountScreen';
 import {BagScreen} from 'screens/BagScreen/BagScreen';
 import {HomeScreen} from 'screens/HomeScreen/HomeScreen';
-import {ShopScreen} from 'screens/ShopScreen/ShopScreen';
 import {WantsScreen} from 'screens/WantsScreen/WantsScreen';
 
+import {ShopStackNavigator} from 'navigators/stack/ShopStackNavigator/ShopStackNavigator';
 import {
   ACCOUNT_SCREEN_OPTIONS,
   BAG_SCREEN_OPTIONS,
@@ -33,7 +33,7 @@ const MainTabNavigator = () => {
       />
       <Tab.Screen
         name="Shop"
-        component={ShopScreen}
+        component={ShopStackNavigator}
         options={SHOP_SCREEN_OPTIONS}
       />
       <Tab.Screen
