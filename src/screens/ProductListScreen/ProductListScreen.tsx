@@ -1,13 +1,21 @@
 import {FC} from 'react';
-import {View, Text} from 'react-native';
+import {FlatList, ListRenderItem, Text, View} from 'react-native';
 
 import {Loader} from 'components/Loader/Loader';
 
 import {useProducts} from 'hooks/useProducts/useProducts';
 
+import {ProductItem} from './ProductItem/ProductItem';
+import {STICKY_HEADER_INDICES} from './productListScreen.settings';
 import styles from './productListScreen.styles';
 import {TEST_ID} from './productListScreen.testID';
 import {ProductListScreenProps} from './productListScreen.types';
+
+import {Product} from '__generated__/types';
+
+const renderItem: ListRenderItem<Product> = ({item}) => (
+  <ProductItem item={item} />
+);
 
 //TODO: add sort and filter logic
 const ProductListScreen: FC<ProductListScreenProps> = ({
@@ -22,8 +30,20 @@ const ProductListScreen: FC<ProductListScreenProps> = ({
   }
 
   return (
-    <View style={styles.container} testID={TEST_ID.PRODUCT_LIST_SCREEN}>
-      <Text style={styles.totalItemsHeader}>{data?.length} items found</Text>
+    <View testID={TEST_ID.PRODUCT_LIST_SCREEN}>
+      <FlatList
+        data={data}
+        renderItem={renderItem}
+        ListHeaderComponent={
+          <View style={styles.totalItemsContainer}>
+            <Text style={styles.totalItemsText}>
+              {data?.length} items found
+            </Text>
+          </View>
+        }
+        numColumns={2}
+        stickyHeaderIndices={STICKY_HEADER_INDICES}
+      />
     </View>
   );
 };

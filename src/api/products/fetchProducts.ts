@@ -15,7 +15,15 @@ export const fetchProducts = async ({
         signal,
       },
     );
-    return await response.json();
+    const data: Product[] | null = await response.json();
+
+    //NOTE: fix broken links
+    return (
+      data?.map(product => ({
+        ...product,
+        img: product.img.replace('http://', 'https://'),
+      })) || null
+    );
   } catch (error) {
     console.warn(error);
     return null;

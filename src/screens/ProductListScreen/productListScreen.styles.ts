@@ -1,8 +1,12 @@
 import {StyleSheet} from 'react-native';
 
+import {COLORS} from 'constants/colors';
+
 const styles = StyleSheet.create({
-  container: {},
-  totalItemsHeader: {
+  totalItemsContainer: {
+    backgroundColor: COLORS.white,
+  },
+  totalItemsText: {
     textAlign: 'center',
     marginVertical: 16,
   },
