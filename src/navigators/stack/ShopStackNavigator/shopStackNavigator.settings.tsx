@@ -32,4 +32,5 @@ export const CATEGORY_SCREEN_OPTIONS:
     />
   ),
   headerLeftContainerStyle: styles.leftButtonContainer,
+  headerTitleStyle: styles.title,
 });
