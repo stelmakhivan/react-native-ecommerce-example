@@ -34,3 +34,23 @@ export const CATEGORY_SCREEN_OPTIONS:
   headerLeftContainerStyle: styles.leftButtonContainer,
   headerTitleStyle: styles.title,
 });
+
+//TODO: create method for default screen options; DRY
+export const PRODUCT_LIST_SCREEN_OPTIONS:
+  | StackNavigationOptions
+  | ((props: {
+      route: RouteProp<ShopStackNavigatorParamList, 'ProductList'>;
+      navigation: ShopStackScreenProps<'ProductList'>['navigation'];
+    }) => StackNavigationOptions) = ({route, navigation}) => ({
+  title: route.params.subCategory,
+  headerLeft: () => (
+    <IoniconsIcons
+      name="chevron-back-circle"
+      size={36}
+      color={COLORS.gray}
+      onPress={navigation.goBack}
+    />
+  ),
+  headerLeftContainerStyle: styles.leftButtonContainer,
+  headerTitleStyle: styles.title,
+});

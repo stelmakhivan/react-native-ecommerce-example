@@ -5,7 +5,7 @@ import {
 } from '@react-navigation/native';
 import {StackScreenProps} from '@react-navigation/stack';
 
-import {Nav} from '__generated__/types';
+import {Link, Nav} from '__generated__/types';
 
 export type MainTabNavigatorParamList = {
   Home: undefined;
@@ -18,6 +18,9 @@ export type MainTabNavigatorParamList = {
 export type ShopStackNavigatorParamList = {
   Categories: undefined;
   Category: Pick<Nav, 'category' | 'url'>;
+  ProductList: Pick<Link, 'url'> & {
+    subCategory: Link['name'];
+  };
 };
 
 export type RootTabScreenProps<T extends keyof MainTabNavigatorParamList> =

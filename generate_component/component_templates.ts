@@ -6,9 +6,8 @@ import upperFirst from 'lodash/upperFirst';
 const component = (name: string) => `import {FC} from 'react';
 import {View, Text} from 'react-native';
 
-import {TEST_ID} from './${camelCase(name)}.testID';
-
 import styles from './${camelCase(name)}.styles';
+import {TEST_ID} from './${camelCase(name)}.testID';
 import {${name}Props} from './${camelCase(name)}.types';
 
 const ${name}: FC<${name}Props> = () => {

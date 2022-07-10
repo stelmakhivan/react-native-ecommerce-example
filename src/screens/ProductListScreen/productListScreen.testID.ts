@@ -1,0 +1,3 @@
+export const TEST_ID = {
+  PRODUCT_LIST_SCREEN: 'PRODUCT_LIST_SCREEN',
+};
