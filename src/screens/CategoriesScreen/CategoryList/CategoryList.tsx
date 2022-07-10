@@ -1,30 +1,18 @@
 import {FC} from 'react';
-import {
-  FlatList,
-  ListRenderItem,
-  RefreshControl,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
-
-import FastImage from 'react-native-fast-image';
+import {FlatList, ListRenderItem, RefreshControl} from 'react-native';
 
 import {useNav} from 'hooks/useNav/useNav';
 
+import {CategoryItem} from './CategoryItem/CategoryItem';
 import {ItemSeparator} from './ItemSeparator/ItemSeparator';
 import styles from './categoryList.styles';
 import {CategoryListProps} from './categoryList.types';
 
 import {Nav} from '__generated__/types';
 
-const renderItem: ListRenderItem<Nav> = ({item}) => {
-  return (
-    <TouchableOpacity style={styles.itemContainer}>
-      <Text style={styles.itemTitle}>{item.category}</Text>
-      <FastImage source={{uri: item.img}} style={styles.image} />
-    </TouchableOpacity>
-  );
-};
+const renderItem: ListRenderItem<Nav> = ({item}) => (
+  <CategoryItem item={item} />
+);
 
 const CategoryList: FC<CategoryListProps> = () => {
   const {data, refetch, isRefetching} = useNav();

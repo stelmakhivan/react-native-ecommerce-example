@@ -9,6 +9,9 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: COLORS.white,
   },
+  leftButtonContainer: {
+    left: 16,
+  },
 });
 
 export default styles;
