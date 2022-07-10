@@ -3,8 +3,8 @@ import {StackNavigationOptions} from '@react-navigation/stack';
 import IoniconsIcons from 'react-native-vector-icons/Ionicons';
 
 import {
-  RootTabScreenProps,
   ShopStackNavigatorParamList,
+  ShopStackScreenProps,
 } from 'navigators/types';
 
 import styles from './shopStackNavigator.styles';
@@ -20,7 +20,7 @@ export const CATEGORY_SCREEN_OPTIONS:
   | StackNavigationOptions
   | ((props: {
       route: RouteProp<ShopStackNavigatorParamList, 'Category'>;
-      navigation: RootTabScreenProps['navigation'];
+      navigation: ShopStackScreenProps<'Category'>['navigation'];
     }) => StackNavigationOptions) = ({route, navigation}) => ({
   title: route.params.category,
   headerLeft: () => (

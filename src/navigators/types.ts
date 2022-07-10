@@ -1,5 +1,9 @@
 import {MaterialBottomTabScreenProps} from '@react-navigation/material-bottom-tabs';
-import {NavigatorScreenParams} from '@react-navigation/native';
+import {
+  CompositeScreenProps,
+  NavigatorScreenParams,
+} from '@react-navigation/native';
+import {StackScreenProps} from '@react-navigation/stack';
 
 import {Nav} from '__generated__/types';
 
@@ -16,9 +20,14 @@ export type ShopStackNavigatorParamList = {
   Category: Pick<Nav, 'category' | 'url'>;
 };
 
-export type RootTabScreenProps<
-  T extends keyof MainTabNavigatorParamList = keyof MainTabNavigatorParamList,
-> = MaterialBottomTabScreenProps<MainTabNavigatorParamList, T>;
+export type RootTabScreenProps<T extends keyof MainTabNavigatorParamList> =
+  MaterialBottomTabScreenProps<MainTabNavigatorParamList, T>;
+
+export type ShopStackScreenProps<T extends keyof ShopStackNavigatorParamList> =
+  CompositeScreenProps<
+    StackScreenProps<ShopStackNavigatorParamList, T>,
+    RootTabScreenProps<keyof MainTabNavigatorParamList>
+  >;
 
 declare global {
   namespace ReactNavigation {
