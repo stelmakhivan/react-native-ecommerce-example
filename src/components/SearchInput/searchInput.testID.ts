@@ -1,5 +1,3 @@
 export const TEST_ID = {
-  HOME_SCREEN: 'HOME_SCREEN',
-  LOADER: 'LOADER',
   SEARCH_INPUT: 'SEARCH_INPUT',
 };
