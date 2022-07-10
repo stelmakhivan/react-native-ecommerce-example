@@ -30,7 +30,7 @@ To start the project, please open terminal, `cd` to the project root and execute
 - [ ] Share product item logic
 
 
- ![Preview](/preview/preview.mov?raw=true)
+ [Video Preview](/preview/preview.mov?raw=true)
 
 ## File structure:
 This project has a next file structure:
