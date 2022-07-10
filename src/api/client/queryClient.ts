@@ -1,3 +1,5 @@
+// NOTE: might be replaced with RTKQuery
+// https://redux-toolkit.js.org/rtk-query/overview
 import {QueryClient} from 'react-query';
 
 const queryClient = new QueryClient();

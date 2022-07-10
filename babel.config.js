@@ -23,7 +23,7 @@ module.exports = {
           hooks: ['./src/hooks'],
           navigators: ['./src/navigators'],
           screens: ['./src/screens'],
-          services: ['./src/services'],
+          store: ['./src/store'],
         },
       },
     ],
