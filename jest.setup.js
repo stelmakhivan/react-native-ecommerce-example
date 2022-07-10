@@ -12,3 +12,15 @@ jest.mock('react-native-reanimated', () => {
 
 jest.mock('react-native/Libraries/EventEmitter/NativeEventEmitter');
 jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
+
+const mockStore = {
+  getState: jest.fn(),
+};
+
+jest.mock('store', () => ({
+  useAppDispatch: jest
+    .fn()
+    .mockReturnValue(dispatchedResult => dispatchedResult),
+  useAppSelector: jest.fn().mockImplementation(selector => selector()),
+  store: mockStore,
+}));

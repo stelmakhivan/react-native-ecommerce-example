@@ -1,0 +1,1 @@
+export const SWIPE_ACTION_BUTTON_WIDTH = 100;

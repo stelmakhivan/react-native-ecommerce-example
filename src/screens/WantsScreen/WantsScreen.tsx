@@ -7,6 +7,7 @@ import styles from './wantsScreen.styles';
 import {TEST_ID} from './wantsScreen.testID';
 import {WantsScreenProps} from './wantsScreen.types';
 
+//TODO: implement wishlist logic (it's similar to bag)
 const WantsScreen: FC<WantsScreenProps> = () => {
   return (
     <SafeAreaView style={styles.container} testID={TEST_ID.WANTS_SCREEN}>

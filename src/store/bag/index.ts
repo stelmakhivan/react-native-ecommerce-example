@@ -1,6 +1,7 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 import {AppStore} from 'store';
+import {calculateTotalQuantity} from 'utils/calculateTotalQuantity/calculateTotalQuantity';
 
 import {BagProduct, BagState} from './bag.types';
 
@@ -28,13 +29,44 @@ const bagSlice = createSlice({
         product => product.id !== action.payload,
       );
     },
+    incrementQuantity: (state, action: PayloadAction<BagProduct['id']>) => {
+      const existedProduct = state.products.find(
+        product => product.id === action.payload,
+      );
+
+      if (!existedProduct) {
+        return;
+      }
+
+      existedProduct.quantity += 1;
+    },
+    decrementQuantity: (state, action: PayloadAction<BagProduct['id']>) => {
+      const existedProduct = state.products.find(
+        product => product.id === action.payload,
+      );
+
+      if (!existedProduct) {
+        return;
+      }
+
+      existedProduct.quantity -= 1;
+    },
+    clearBag: () => initialState,
   },
 });
 
 export const selectProducts = (state: AppStore) => state.bag.products;
 export const selectTotalProducts = (state: AppStore) =>
   state.bag.products.length;
+export const selectTotalQuantity = (state: AppStore) =>
+  calculateTotalQuantity(state.bag.products);
 
-export const {addToBag, removeFromBag} = bagSlice.actions;
+export const {
+  addToBag,
+  removeFromBag,
+  incrementQuantity,
+  decrementQuantity,
+  clearBag,
+} = bagSlice.actions;
 
 export default bagSlice.reducer;

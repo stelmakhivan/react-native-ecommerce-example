@@ -27,12 +27,22 @@ export type ShopStackNavigatorParamList = {
   };
 };
 
+export type BagStackNavigatorParamList = {
+  BagItems: undefined;
+};
+
 export type RootTabScreenProps<T extends keyof MainTabNavigatorParamList> =
   MaterialBottomTabScreenProps<MainTabNavigatorParamList, T>;
 
 export type ShopStackScreenProps<T extends keyof ShopStackNavigatorParamList> =
   CompositeScreenProps<
     StackScreenProps<ShopStackNavigatorParamList, T>,
+    RootTabScreenProps<keyof MainTabNavigatorParamList>
+  >;
+
+export type BagStackScreenProps<T extends keyof BagStackNavigatorParamList> =
+  CompositeScreenProps<
+    StackScreenProps<BagStackNavigatorParamList, T>,
     RootTabScreenProps<keyof MainTabNavigatorParamList>
   >;
 
