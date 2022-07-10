@@ -1,1 +1,3 @@
-export type LoaderProps = {};
+export type LoaderProps = {
+  testID?: string;
+};
