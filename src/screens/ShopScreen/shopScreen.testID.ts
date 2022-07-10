@@ -1,3 +1,4 @@
 export const TEST_ID = {
   SHOP_SCREEN: 'SHOP_SCREEN',
+  SEARCH_INPUT: 'SEARCH_INPUT',
 };
