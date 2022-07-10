@@ -8,6 +8,9 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import {Loader} from 'components/Loader/Loader';
 
+import {useAppDispatch} from 'store';
+import {addToBag} from 'store/bag';
+
 import {useProductDetails} from 'hooks/useProductDetails/useProductDetails';
 
 import {PRODUCT_DETAILS_SCREEN_EDGES} from './productDetailsScreen.settings';
@@ -22,10 +25,14 @@ const ProductDetailsScreen: FC<ProductDetailsScreenProps> = ({
     params: {id},
   },
 }) => {
+  const dispatch = useAppDispatch();
+
   const {isLoading, data} = useProductDetails(id);
 
   const handleAddToBag = () => {
-    //TODO: select size and add to bag
+    if (data) {
+      dispatch(addToBag(data));
+    }
   };
 
   const handleWantsPress = () => {

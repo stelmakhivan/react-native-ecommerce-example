@@ -3,6 +3,9 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import styles from 'navigators/tabs/MainTabNavigator/mainTabNavigator.styles';
+import {RootTabScreenProps} from 'navigators/types';
+import {useAppSelector} from 'store';
+import {selectTotalProducts} from 'store/bag';
 
 export const HOME_SCREEN_OPTIONS: MaterialBottomTabNavigationOptions = {
   tabBarIcon: ({color}) => (
@@ -26,15 +29,24 @@ export const SHOP_SCREEN_OPTIONS: MaterialBottomTabNavigationOptions = {
   ),
 };
 
-export const BAG_SCREEN_OPTIONS: MaterialBottomTabNavigationOptions = {
-  tabBarIcon: ({color}) => (
-    <MaterialCommunityIcons
-      name="shopping"
-      color={color}
-      size={26}
-      style={styles.icon}
-    />
-  ),
+export const BAG_SCREEN_OPTIONS:
+  | MaterialBottomTabNavigationOptions
+  | ((
+      props: RootTabScreenProps<'Bag'>,
+    ) => MaterialBottomTabNavigationOptions) = () => {
+  const badgeNumber = useAppSelector(selectTotalProducts);
+
+  return {
+    tabBarIcon: ({color}) => (
+      <MaterialCommunityIcons
+        name="shopping"
+        color={color}
+        size={26}
+        style={styles.icon}
+      />
+    ),
+    tabBarBadge: badgeNumber,
+  };
 };
 
 export const WANTS_SCREEN_OPTIONS: MaterialBottomTabNavigationOptions = {

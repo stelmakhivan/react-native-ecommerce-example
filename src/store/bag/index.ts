@@ -34,6 +34,8 @@ const bagSlice = createSlice({
 });
 
 export const selectProducts = (state: AppStore) => state.bag.products;
+export const selectTotalProducts = (state: AppStore) =>
+  state.bag.products.length;
 
 export const {addToBag, removeFromBag} = bagSlice.actions;
 
