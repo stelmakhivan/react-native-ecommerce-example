@@ -3,3 +3,4 @@
 /coverage
 android/
 ios/
+src/**/__generated__

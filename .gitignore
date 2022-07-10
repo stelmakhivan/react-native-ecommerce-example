@@ -73,3 +73,6 @@ ios/tmp.xcconfig
 coverage/
 .jest/
 reports/
+
+#codegen
+src/__generated__
