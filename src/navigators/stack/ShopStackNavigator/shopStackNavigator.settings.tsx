@@ -72,4 +72,5 @@ export const PRODUCT_DETAILS_SCREEN_OPTIONS:
     />
   ),
   headerLeftContainerStyle: styles.leftButtonContainer,
+  headerTransparent: true,
 });
