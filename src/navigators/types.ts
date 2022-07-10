@@ -18,8 +18,9 @@ export type MainTabNavigatorParamList = {
 export type ShopStackNavigatorParamList = {
   Categories: undefined;
   Category: Pick<Nav, 'category' | 'url'>;
-  ProductList: Pick<Link, 'url'> & {
+  ProductList: {
     subCategory: Link['name'];
+    url: string;
   };
 };
 

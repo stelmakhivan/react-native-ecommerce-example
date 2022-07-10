@@ -1,9 +1,11 @@
 import {FC} from 'react';
 import {Text, TouchableOpacity} from 'react-native';
 
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import upperFirst from 'lodash/upperFirst';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
+import {ShopStackScreenProps} from 'navigators/types';
 
 import styles from './subCategoryItem.styles';
 import {SubCategoryItemProps} from './subCategoryItem.types';
@@ -11,6 +13,7 @@ import {SubCategoryItemProps} from './subCategoryItem.types';
 import {COLORS} from 'constants/colors';
 
 const SubCategoryItem: FC<SubCategoryItemProps> = ({item}) => {
+  const route = useRoute<ShopStackScreenProps<'Category'>['route']>();
   const navigation = useNavigation();
 
   const handlerPress = () => {
@@ -18,7 +21,7 @@ const SubCategoryItem: FC<SubCategoryItemProps> = ({item}) => {
       screen: 'ProductList',
       params: {
         subCategory: item.name,
-        url: item.url,
+        url: `${route.params.url}${item.url}`,
       },
     });
   };
