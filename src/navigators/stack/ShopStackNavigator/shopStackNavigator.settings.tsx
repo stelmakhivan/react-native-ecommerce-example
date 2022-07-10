@@ -54,3 +54,22 @@ export const PRODUCT_LIST_SCREEN_OPTIONS:
   headerLeftContainerStyle: styles.leftButtonContainer,
   headerTitleStyle: styles.title,
 });
+
+export const PRODUCT_DETAILS_SCREEN_OPTIONS:
+  | StackNavigationOptions
+  | ((props: {
+      route: RouteProp<ShopStackNavigatorParamList, 'ProductDetails'>;
+      navigation: ShopStackScreenProps<'ProductDetails'>['navigation'];
+    }) => StackNavigationOptions) = ({navigation}) => ({
+  title: '',
+  headerShadowVisible: false,
+  headerLeft: () => (
+    <IoniconsIcons
+      name="chevron-back-circle"
+      size={36}
+      color={COLORS.gray}
+      onPress={navigation.goBack}
+    />
+  ),
+  headerLeftContainerStyle: styles.leftButtonContainer,
+});
