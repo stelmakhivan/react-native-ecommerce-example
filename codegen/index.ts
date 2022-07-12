@@ -72,6 +72,7 @@ main()
   })
   .catch(error => console.error(error));
 
+//TODO:remove comments with unused code
 // compileFromFile(SCHEMA_FILE_PATH)
 //   .then(ts => {
 //     if (!fs.existsSync(GENERATED_TYPES_PATH)) {
